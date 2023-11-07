@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rocky Cowan</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <header>
+      <h1>Rocky Cowan</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="order.html">Order</a>
+        <a href="staff.html">Staff</a>
+      </nav>
+    </header>    
+    <section>
+      <h2>Order Form</h2>
+      <article>
+       <p>Use the form below to place your order!</p>
+       <form action="/submit-order" method="POST">
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" autofocus placeholder="Enter your name" required>
+          <br>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          <br>
+          <label for="address">Address:</label>
+          <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
+        </fieldset>
+        <fieldset>
+          <legend>Product Information</legend>
+          <table>
+            <caption>Products</caption>
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Product</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Select</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td id="company1">AGYM</td>
+                  <td id="product1">Spinning Cat Scratcher Ball</td>
+                  <td>Spinning Cat Scratcher Ball</td>
+                  <td id="price1">$52.99</td>
+                  <td><label><input type="radio" name="product" value="spinning cat scratcher ball"> Select</label></td>
+                </tr>
+                <tr>
+                  <td id="company2">Jasonwell</td>
+                  <td id="product2">Foldable Dog Pool</td>
+                  <td>Foldable Dog Pool</td>
+                  <td id="price2">$27.25</td>
+                  <td><label><input type="radio" name="product" value="foldable dog pool"> Select</label></td>
+                </tr>
+                <tr>
+                  <td id="company3">Expawlorer</td>
+                  <td id="product3">Dog Fence Window</td>
+                  <td>Dog Fence Window</td>
+                  <td id="price3">$30.50</td>
+                  <td><label><input type="radio" name="product" value="dog fence window"> Select</label></td>
+                </tr>
+                <tr>
+                  <td id="company4">Lollimeow</td>
+                  <td id="product4">Capsule Pet Travel Backpack</td>
+                  <td>Capsule Pet Travel Backpack</td>
+                  <td id="price4">$59.00</td>
+                  <td><label><input type="radio" name="product" value="capsule pet travel backpack"> Select</label></td>
+                </tr>
+                <tr>
+                  <td id="company5">Drool'd</td>
+                  <td id="product5">Cat Hamster Wheel</td>
+                  <td>Cat Hamster Wheel</td>
+                  <td id="price5">$349.75</td>
+                  <td><label><input type="radio" name="product" value="cat hamster wheel"> Select</label></td>
+                </tr>
+              </tbody>                         
+        </table>
+        <p class="note">Please select only one product.</p>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" required>
+        <br>
+        <label for="delivery-instructions">Delivery Instructions:</label>
+        <textarea id="delivery-instructions" name="delivery-instructions" placeholder="Enter delivery instructions"></textarea>
+      </fieldset>
+        <button type="submit">Submit Order</button>
+      </form>
+      </article>
+    </section>
+    <footer>
+      <p>&copy; Rocky Cowan</p>
+    </footer>      
+  </body>
+</html>

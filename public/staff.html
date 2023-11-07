@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Simple Node app using a Public folder, JavaScript, HTML, and CSS</title>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <script src="random.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Meet Our Staff</h1>
+    <p class="slogan">"Ace-ing the Game with Expertise and Laughter - Our Staff is a Smash Hit!"</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="order.html">Order</a>
+    <a href="staff.html">Staff</a>
+  </nav>
+  
+  <main>
+    <h2>Staff List</h2>
+    <article>
+      <p>Call the API to view our staff...</p>
+      <button id="from-browser">Directly from Browser</button>
+      <button id="from-server">Through the Express server</button>
+      <table>
+        <caption>Name, email, phone, and location</caption>
+        <thead>
+          <tr>
+            <th>Portrait</th>
+            <th>Name/Email</th>
+            <th>Telephone</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody id="data-table">
+          <!-- Rows will be dynamically added here -->
+        </tbody>
+      </table>
+    </article>
+  </main>
+
+  <footer>
+    <p><cite>&copy; Rocky Cowan</cite></p>
+  </footer>  
+</body>
+</html>

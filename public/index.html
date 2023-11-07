@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Space Activity Digest</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="random.js" defer></script>
+</head>
+<body>
+
+<header>
+    <h1>Space Activity Digest</h1>       
+</header>
+
+<nav>
+    <a href="#nasaPicContainer">NASA Photo of the Day</a>
+    <a href="#astronautList">Astronauts in Space</a>
+    <a href="#missionsContainer">Upcoming Missions</a>
+    <a href="#eventsCalendar">Celestial Events</a>
+</nav>
+
+<main>
+    <section id="nasaPicContainer">
+        <h2>NASA Picture of the Day</h2>
+        <div class="date-picker">
+            <button id="prevDay" onclick="changeDate(-1)">Previous Day</button>
+            <input type="date" id="datePicker" max="2023-04-30"> <!-- set the max date to your current date -->
+            <button id="nextDay" onclick="changeDate(1)">Next Day</button>
+        </div>
+        <button id="fetchNasaPic">Show Picture</button>
+        <div>
+            <img id="nasaPic" src="Images/RedAuroraItaly_Hofer_1200.jpg" alt="NASA Picture of the Day">
+            <h3 id="imageTitle">Title of the image</h3>
+            <p id="imageExplanation">Explanation of the image</p>
+        </div>
+    </section>
+
+    <section id="astronautSection">
+        <h2>Astronauts Currently in Space</h2>
+        <ul id="astronautList">
+            <!-- List items will be populated dynamically with JavaScript -->
+        </ul>
+    </section>
+
+    <section id="missionsSection">
+        <h2>Upcoming NASA Missions</h2>
+        <div id="missionsContainer">
+            <!-- Mission cards will be populated dynamically with JavaScript -->
+        </div>
+    </section>
+
+    <section id="eventsSection">
+        <h2>Celestial Events</h2>
+        <div id="eventsCalendar">
+            <!-- Events will be populated dynamically with JavaScript -->
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&#169; Space Activity Digest</p>
+</footer>
+<script src="apod.js"></script>
+</body>
+</html>

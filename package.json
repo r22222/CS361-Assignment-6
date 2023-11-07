@@ -1,0 +1,25 @@
+{
+  "name": "conceptapp",
+  "version": "1.0.0",
+  "description": "Concept web app using node and express for cs290",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.mjs"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "app"
+  ],
+  "author": "Rocky Cowan",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "nodemailer": "^6.9.1",
+    "nodemon": "^2.0.22"
+  }
+}

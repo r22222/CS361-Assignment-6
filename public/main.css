@@ -1,0 +1,224 @@
+/*  ===== Global Styles & Resets ===== */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@100,700&family=Roboto:ital,wght@1,700&display=swap');
+
+/* Use modern-normalize to reset browser defaults */
+@import 'node_modules/modern-normalize/modern-normalize.css';
+
+/* CSS Variables for Theme Colors */
+:root {
+    --dark-color: #663D33;
+    --medium-color: #696876;
+    --light-color: #ffffff;
+    --accent-color: #132d9e;
+    --transparent-dark-color: hsla(75, 22%, 46%, 0.7);
+}
+
+/* Base Element Styles */
+body {
+    margin: 0;
+    padding: 50px;
+    max-width: 80%;
+    font-family: 'Prompt', sans-serif;
+    color: var(--dark-color);
+    background-color: rgba(0, 0, 0, 0.363);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box; /* Ensures padding does not affect width */
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--light-color);
+    text-shadow: 1px 1px 2px var(--medium-color); /* Subtle text shadow for depth */
+}
+
+/* Paragraph Styles */
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--light-color);
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--accent-color);
+    padding: 10px 0;
+}
+
+nav a {
+    padding: 12px 24px;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+nav a:hover {
+    background-color: var(--medium-color);
+}
+
+/* Main Content Styles */
+main {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    margin: 20px 0;
+    border: 1px solid var(--dark-color);
+    color: var(--accent-color);
+}
+
+section, article {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-top: 2px solid var(--light-color);
+    color: var(--light-color);
+}
+
+/* Form Styles */
+input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-bottom: 2px solid var(--medium-color);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+/* Table Styles */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+table th {
+    font-weight: 700;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+table td, table th {
+    text-align: left;
+    padding: 0.75rem;
+    border-top: 1px solid var(--medium-color);
+}
+
+tr:nth-child(even) {
+    background-color: var(--transparent-dark-color);
+}
+
+/* Gallery Styles */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gallery figure {
+    flex: 1 1 calc(33.33% - 20px); /* Three images per row */
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .gallery figure {
+        flex-basis: calc(50% - 20px); /* Two images per row on smaller screens */
+    }
+}
+
+#nasaPic {
+  max-width: 100%; /* This will ensure the image is no wider than its container */
+  height: auto; /* This will keep the image's aspect ratio intact */
+  display: block; /* This will prevent inline formatting with text */
+  margin: 0 auto; /* This will center the image within its container */
+}
+
+.date-picker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Adjust the space between elements */
+}
+
+.date-picker button {
+  padding: 5px 10px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; /* Optional for rounded corners */
+}
+
+.date-picker button:hover {
+  background-color: var(--medium-color);
+}
+
+.date-picker input[type="date"] {
+  padding: 5px;
+  border: 1px solid var(--medium-color);
+  border-radius: 5px;
+}
+
+#nasaPicContainer {
+  background-color: black;
+  color: white;
+}
+
+.date-picker button {
+  background-color: #333; /* Dark grey background */
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.date-picker button:hover {
+  background-color: #555; /* Lighter grey for hover effect */
+  cursor: pointer;
+}
+
+.date-picker input[type=date] {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#fetchNasaPic {
+  background-color: #0b3d91; /* Dark blue background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#fetchNasaPic:hover {
+  background-color: #0c4da2; /* Slightly lighter blue for hover effect */
+  cursor: pointer;
+}
