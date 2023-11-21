@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const apodUrl = 'https://api.nasa.gov/planetary/apod';
-  const apiKey = '99tvcUE5PU8vRNVPugbUOUXB8UHXn2qkfOpqNfQL'; // Your actual API key
+  const apiKey = '99tvcUE5PU8vRNVPugbUOUXB8UHXn2qkfOpqNfQL'; // Replace with your actual API key
 
   const datePicker = document.getElementById('datePicker');
   const imageElement = document.getElementById('nasaPic');
@@ -34,46 +34,50 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
+  function changeDate(change) {
+    let currentDateString = datePicker.value;
+
+    if (currentDateString) {
+      let currentDate = new Date(currentDateString);
+      currentDate.setDate(currentDate.getDate() + change);
+      let newDateString = currentDate.toISOString().split('T')[0];
+      datePicker.value = newDateString;
+      fetchApod(newDateString);
+    } else {
+      console.log("No date selected");
+    }
+  }
+
+  function setToday() {
+    const today = new Date().toISOString().split('T')[0];
+    datePicker.value = today;
+    fetchApod(today);
+  }
+
+  function fetchStats(imageUrl) {
+    fetch(`http://localhost:3000/analyze-image?url=${encodeURIComponent(imageUrl)}`)
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('statFormat').textContent = `Format: ${data.format}`;
+        document.getElementById('statDimensions').textContent = `Dimensions: ${data.width} x ${data.height}`;
+        // Update other elements similarly
+      })
+      .catch(error => console.error('Error:', error));
+  }
+
+  // Attach event listeners
+  document.getElementById('prevDay').addEventListener('click', () => changeDate(-1));
+  document.getElementById('nextDay').addEventListener('click', () => changeDate(1));
+  document.getElementById('today').addEventListener('click', setToday);
   document.getElementById('fetchNasaPic').addEventListener('click', () => {
     const selectedDate = datePicker.value;
-    if (selectedDate) {
-      fetchApod(selectedDate);
-    } else {
-      alert('Please select a date.');
-    }
+    fetchApod(selectedDate);
   });
-
-  const today = new Date().toISOString().split('T')[0];
-  datePicker.setAttribute('max', today);
+  document.getElementById('fetchImageStats').addEventListener('click', () => {
+    const imageUrl = imageElement.src;
+    fetchStats(imageUrl);
+  });
 
   // Fetch APOD for today when the page loads
   fetchApod();
 });
-
-function changeDate(change) {
-  // Get the current value from the datePicker input
-  let currentDateString = document.getElementById('datePicker').value;
-
-  // Make sure there is a current date selected
-  if (currentDateString) {
-      // Convert the current date string to a Date object
-      let currentDate = new Date(currentDateString);
-
-      // Add the day change (+1 for next, -1 for previous)
-      currentDate.setDate(currentDate.getDate() + change);
-
-      // Convert the new Date object back to a string in YYYY-MM-DD format
-      let newDateString = currentDate.toISOString().split('T')[0];
-
-      // Set the new date string as the value of the datePicker input
-      document.getElementById('datePicker').value = newDateString;
-
-      // Fetch the new APOD
-      fetchApod(newDateString);
-  }
-}
-
-function setToday() {
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('datePicker').value = today;
-}

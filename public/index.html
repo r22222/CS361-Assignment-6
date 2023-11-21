@@ -23,18 +23,26 @@
     <a href="#eventsCalendar">Celestial Events</a>
 </nav>
 
+
 <main>
     <section id="nasaPicContainer">
         <h2>NASA Picture of the Day</h2>
         <div class="date-picker">
-            <button id="prevDay" onclick="changeDate(-1)">Previous Day</button>
-            <input type="date" id="datePicker" max="2023-04-30"> <!-- set the max date to your current date -->
-            <button id="nextDay" onclick="changeDate(1)">Next Day</button>
+            <button id="prevDay">Previous Day</button>
+            <button id="today">Today</button>
+            <input type="date" id="datePicker" max="2023-04-30">
+            <button id="nextDay">Next Day</button>
         </div>
         <button id="fetchNasaPic">Show Picture</button>
         <div>
             <img id="nasaPic" src="Images/RedAuroraItaly_Hofer_1200.jpg" alt="NASA Picture of the Day">
             <h3 id="imageTitle">Title of the image</h3>
+            <button id="fetchImageStats">Get Image Stats</button>  
+            <div id="imageStats">
+                <p>Format: <span id="statFormat"></span></p>
+                <p>Dimensions: <span id="statDimensions"></span></p>
+                <!-- Add more elements for other stats as needed -->
+            </div>
             <p id="imageExplanation">Explanation of the image</p>
         </div>
     </section>
@@ -64,6 +72,6 @@
 <footer>
     <p>&#169; Space Activity Digest</p>
 </footer>
-<script src="apod.js"></script>
+<script src="random.js"></script>
 </body>
 </html>

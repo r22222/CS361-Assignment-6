@@ -222,3 +222,13 @@ tr:nth-child(even) {
   background-color: #0c4da2; /* Slightly lighter blue for hover effect */
   cursor: pointer;
 }
+
+.image-analysis-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+  color: white;
+  padding: 10px;
+  display: block; /* To change to  Initially hidden change from block to none */
+}
