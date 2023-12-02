@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Space Activity Digest</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="random.js" defer></script>
 </head>
 <body>
@@ -37,15 +37,28 @@
         <div>
             <img id="nasaPic" src="Images/RedAuroraItaly_Hofer_1200.jpg" alt="NASA Picture of the Day">
             <h3 id="imageTitle">Title of the image</h3>
-            <button id="fetchImageStats">Get Image Stats</button>  
-            <div id="imageStats">
-                <p>Format: <span id="statFormat"></span></p>
-                <p>Dimensions: <span id="statDimensions"></span></p>
-                <!-- Add more elements for other stats as needed -->
-            </div>
-            <p id="imageExplanation">Explanation of the image</p>
+            <!-- Example HTML form for image upload -->
+            <form id="image-upload-form" method="post" enctype="multipart/form-data">
+                <input type="file" name="image" accept="image/*" required>
+                <button type="submit">Upload Image</button>
+            </form>
         </div>
     </section>
+
+    <!-- Section for Captions -->
+    <section id="captionsSection">
+        <h2>Captions:</h2>
+        <div id="captions"></div>
+    </section>
+
+    <button id="fetchImageStats">Get Image Stats</button>  
+    <div id="imageStats">
+        <p><span id="statFormatLabel">Format:</span> <span id="statFormat"></span></p>
+        <p><span id="statDimensionsLabel">Dimensions:</span> <span id="statDimensions"></span></p>
+        <p><span id="statFileSizeLabel">File Size:</span> <span id="statFileSize"></span></p>
+        <!-- Add more elements for other stats as needed -->
+    </div>            
+    <p id="imageExplanation">Explanation of the image</p>
 
     <section id="astronautSection">
         <h2>Astronauts Currently in Space</h2>

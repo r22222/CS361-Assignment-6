@@ -4,13 +4,10 @@ const cors = require('cors'); // Import the cors module
 const express = require('express');
 const nodemailer = require('nodemailer');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-const corsOptions = {
-    origin: 'http://localhost:3000', // Replace with your frontend domain
-};
-
-app.use(cors(corsOptions));
+// Enable CORS for all routes
+app.use(cors());
 
 app.use(express.urlencoded({
     extended: true
@@ -56,18 +53,22 @@ let htmlBottom = `
 `;
 
 const nasaApiKey = "99tvcUE5PU8vRNVPugbUOUXB8UHXn2qkfOpqNfQL"; // Define the NASA API key here
-
 (async () => {
     const fetch = (await import('node-fetch')).default;
 
     // Define the /nasa-apod route
     app.get('/nasa-apod', async (req, res) => {
-        const date = req.query.date;
+        let date = req.query.date;
+        // Check if date is provided, if not, default to today's date
+        if (!date) {
+            date = new Date().toISOString().split('T')[0]; // Default to today's date
+        }
+
         const apodUrl = `https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}&date=${date}`;
-        console.log('Request URL:', apodUrl); // Add this line for debugging
+        console.log('Request URL:', apodUrl); // Debugging line
         try {
             const response = await fetch(apodUrl);
-            console.log('Response Status:', response.status); // Add this line for debugging
+            console.log('Response Status:', response.status); // Debugging line
             if (!response.ok) {
                 console.error(`NASA APOD request failed: ${response.status} ${response.statusText}`);
                 throw new Error('Network response was not ok');
