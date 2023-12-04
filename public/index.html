@@ -18,11 +18,7 @@
 
 <nav>
     <a href="#nasaPicContainer">NASA Photo of the Day</a>
-    <a href="#astronautList">Astronauts in Space</a>
-    <a href="#missionsContainer">Upcoming Missions</a>
-    <a href="#eventsCalendar">Celestial Events</a>
 </nav>
-
 
 <main>
     <section id="nasaPicContainer">
@@ -37,7 +33,7 @@
         <div>
             <img id="nasaPic" src="Images/RedAuroraItaly_Hofer_1200.jpg" alt="NASA Picture of the Day">
             <h3 id="imageTitle">Title of the image</h3>
-            <!-- Example HTML form for image upload -->
+            <!-- HTML form for image upload -->
             <form id="image-upload-form" method="post" enctype="multipart/form-data">
                 <input type="file" name="image" accept="image/*" required>
                 <button type="submit">Upload Image</button>
@@ -51,35 +47,16 @@
         <div id="captions"></div>
     </section>
 
-    <button id="fetchImageStats">Get Image Stats</button>  
-    <div id="imageStats">
-        <p><span id="statFormatLabel">Format:</span> <span id="statFormat"></span></p>
-        <p><span id="statDimensionsLabel">Dimensions:</span> <span id="statDimensions"></span></p>
-        <p><span id="statFileSizeLabel">File Size:</span> <span id="statFileSize"></span></p>
-        <!-- Add more elements for other stats as needed -->
-    </div>            
+    <!-- Section for Image Stats -->
+    <section id="imageStatsSection">
+        <h2>Image Stats:</h2>
+        <div id="imageStats">
+            <!-- Image stats elements will be populated dynamically with JavaScript -->
+        </div>
+    </section>
+
     <p id="imageExplanation">Explanation of the image</p>
 
-    <section id="astronautSection">
-        <h2>Astronauts Currently in Space</h2>
-        <ul id="astronautList">
-            <!-- List items will be populated dynamically with JavaScript -->
-        </ul>
-    </section>
-
-    <section id="missionsSection">
-        <h2>Upcoming NASA Missions</h2>
-        <div id="missionsContainer">
-            <!-- Mission cards will be populated dynamically with JavaScript -->
-        </div>
-    </section>
-
-    <section id="eventsSection">
-        <h2>Celestial Events</h2>
-        <div id="eventsCalendar">
-            <!-- Events will be populated dynamically with JavaScript -->
-        </div>
-    </section>
 </main>
 
 <footer>
